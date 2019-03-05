@@ -187,11 +187,122 @@ User Nav
     }
 }
 
-/* Side Navigation legal text */
+/* 
+Side Navigation legal text
+ */
 
 .legal {
     font-size: 1.2rem;
     text-align: center;
     padding: 2.5rem;
     color: var(--color-grey-light-4);
+}
+
+/* 
+Main page 
+*/
+
+.gallery {
+    display: flex;
+    &__photo {
+        width: 100%;
+        display: block;
+    }
+}
+
+.overview {
+    display: flex;
+    // background-color: antiquewhite;
+   
+    align-items: center;
+    border-bottom: 1px solid var(--color-grey-light-2);
+    &__heading {
+        // background-color: blue;
+        font-size: 2.5rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 2.5rem;
+
+    }
+    &__stars {
+        margin-right: auto;
+        display: flex;
+
+    }
+    &__location {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+    &__icon {
+       &--star {
+        width:3rem;
+        height: 3rem;
+        fill: var(--color-primary);
+       }
+       &--location {
+        width:2rem;
+        height: 2rem;
+        margin-right: .5rem;
+        fill: var(--color-primary); 
+       }
+    }
+    &__rating {
+        background-color: var(--color-primary);
+        height: 100%;
+        color: var(--color-white);
+        margin-left: 3rem;
+        padding: 1rem 2rem;
+        align-self: stretch;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &--average{
+            font-size: 2.5rem;
+    }
+        &--count{
+            font-size: .8rem;
+            
+    }
+    }
+}
+
+/* Inline button for hotel overview */
+
+.btn-inline {
+    border:none;
+    color:var(--color-primary);
+    font-size: inherit;
+    border-bottom: 1px solid currentColor;
+    cursor: pointer;
+    display: inline-block;
+    background-color: transparent;
+    transition: all .2s;
+    padding-bottom: .3rem;
+    &:hover {
+        color: var(--color-grey-dark-1);
+        animation: pulsate 1s infinite;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 1rem 4rem rgba(0,0,0,.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
 }
