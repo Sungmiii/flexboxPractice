@@ -1,17 +1,5 @@
-/*
-COLORS
 
-Grey light 1: #faf9f9
-Grey light 2: #f4f2f2
-Grey light 3: #f0eeee
-Grey light 4: #ccc
-
-Grey dark 1: #333
-Grey dark 2: #777
-Grey dark 3: #999
-
-*/
-// CSS custom property
+// CSS custom property for colour
 
 :root {
  --color-primary:#eb2f64;
@@ -23,9 +11,15 @@ Grey dark 3: #999
  --color-grey-light-3:#f0eeee;
  --color-grey-light-4:#ccc;
 
+ --color-white: #fff;
+ --color-black: #000;
+/* for text */
  --color-grey-dark-1:#333;
  --color-grey-dark-2:#777;
  --color-grey-dark-3:#999;
+
+/* shadow property */
+ --shadow-primary: 0 2rem 6rem rgba(0,0,0, .3);
 }
 
 html {
@@ -49,6 +43,8 @@ body {
     background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
     background-size: cover;
     background-repeat: no-repeat;
+    
+    color:var(--color-grey-dark-2);
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     line-height: 1.6;
