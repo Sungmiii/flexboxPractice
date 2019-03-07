@@ -215,7 +215,7 @@ Main page
     // background-color: antiquewhite;
    
     align-items: center;
-    border-bottom: 1px solid var(--color-grey-light-2);
+    border-bottom: var(--line);
     &__heading {
         // background-color: blue;
         font-size: 2.5rem;
@@ -304,5 +304,84 @@ Main page
     100% {
         transform: scale(1);
         box-shadow: none;
+    }
+}
+
+/* 
+Hotel view deatil space 
+*/
+
+.detail {
+    display: flex;
+    background-color: var(--color-grey-light-1);
+    padding:4.5rem;
+    border-bottom: var(--line);
+}
+
+.description {
+    background-color: var(--color-white);
+    flex:0 0 60%;
+    margin-right: 3rem;
+    padding: 4.5rem;
+    box-shadow: var(--shadow-light);
+    font-size: 1.4rem;
+}
+
+.user-reviews {
+    background-color: var(--color-white);
+    flex:1;
+}
+
+////Paragraph
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+////List
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin: 3rem 0;
+    padding: 3rem 0;
+    list-style: none;
+    border-top: var(--line);
+    border-bottom: var(--line);
+    &-item{
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 1.4rem;
+            height: 1.4rem;
+            margin-right: .7rem;
+
+            //newer version broswer -masks
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            background-color: var(--color-primary);
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+
+            //orderbrwoser
+            //background-image: url(../img/chevron-thin-right.svg);
+            //background-size: cover;
+
+            
+        }
+        flex: 0 0 50%;
+        margin-bottom: .7rem;
+    }
+}
+
+////Recommend
+
+.recommend {
+    &__count{
+
+    }
+    &__friends{
+
+    }
+    &__photo {
+
     }
 }
