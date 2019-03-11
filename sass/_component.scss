@@ -283,9 +283,16 @@ Main page
     background-color: transparent;
     transition: all .2s;
     padding-bottom: .3rem;
+    & span{
+        margin-left: 3px;
+        transition: margin-left .2s;
+    }
     &:hover {
         color: var(--color-grey-dark-1);
         animation: pulsate 1s infinite;
+        span {
+            margin-left: 10px;
+        }
     }
     &:focus {
         outline: none;
@@ -316,6 +323,7 @@ Hotel view deatil space
     background-color: var(--color-grey-light-1);
     padding:4.5rem;
     border-bottom: var(--line);
+    font-size: 1.4rem;
 }
 
 .description {
@@ -328,8 +336,12 @@ Hotel view deatil space
 }
 
 .user-reviews {
-    background-color: var(--color-white);
-    flex:1;
+    // background-color: var(--color-white);
+    flex:1; 
+
+    display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 ////Paragraph
@@ -375,13 +387,140 @@ Hotel view deatil space
 ////Recommend
 
 .recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+    display: flex;
+    align-items: center;
     &__count{
-
+        margin-right:auto;
     }
     &__friends{
 
     }
     &__photo {
+        height: 3.5rem;
+        width: 3.5rem;
+        border-radius: 50%;
+        border:3px solid var(--color-white);
+        box-sizing: content-box;
+        &:not(:last-child){
+            margin-right: -1.5rem;
+        }
+    }
+}
 
+
+/* 
+User
+Review */
+
+
+.review{
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    overflow: hidden;
+    &__text {
+        z-index: 3;
+        position: relative;
+    }
+    &::before{
+        content: "\201C";
+        position: absolute;
+        top:0rem;
+        left: -1.5rem;
+        font-size: 20rem;
+        font-family: sans-serif;
+        color:var(--color-grey-light-2);
+        line-height: 1;
+        z-index: 1;
+    }
+    &__user {
+        display: flex;
+        margin-top: 2rem;
+        align-items: center;
+    }
+    &__user-box {
+        margin-left: 3rem;
+        margin-right: auto;
+    }
+    &__user-name{
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+    &__user-date{
+        color: var(--color-grey-light-4);
+    }
+    &__photo {
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+    }
+    &__rating {
+        color: var(--color-primary);
+        font-size: 2.2rem;
+    }
+   
+}
+
+/* 
+CTA button space
+*/
+
+.cta {
+    padding: 3.5rem 0;
+    text-align: center;
+    &__book-now{
+        text-transform: uppercase;
+        font-size: 2rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+    }
+}
+
+///////// cta button styling
+
+.btn {
+    font-size: 1.7rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: var(--color-white);
+    border:none;
+    border-radius: 130px;
+    background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    &:focus{
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
+    & > * {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        transition: all .2s;
+    }
+    &__visible{
+        padding: 2rem 7.5rem;
+       
+    }
+    &__invisible{
+        position: absolute;
+        left:0;
+        top:-100%;
+        padding: 2rem 0;
+    }
+    &:hover {
+        background-image: linear-gradient(to left, var(--color-primary), var(--color-primary-dark));
+    }
+    &:hover  &__visible {
+           transform: translateY(100%);
+
+        }
+    &:hover  &__invisible{
+        top:0;
     }
 }
