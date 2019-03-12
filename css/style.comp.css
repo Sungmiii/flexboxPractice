@@ -217,12 +217,12 @@ User Nav
         top: 0; } }
   .user-nav__user {
     position: relative;
-    transition: height 0.4s cubic-bezier(1, 0, 0, 1) 0.2s opacity 0.2s; }
+    transition: transform 0.2, height 0.4s cubic-bezier(1, 0, 0, 1) 0.5s opacity 0.2s; }
     .user-nav__user:hover .user-nav__user-logoption {
       visibility: visible;
       opacity: 1;
-      top: 7rem;
-      height: 100%; }
+      height: 100%;
+      transform: scaleY(1); }
     .user-nav__user-photo {
       height: 3.75rem;
       border-radius: 50%;
@@ -241,7 +241,8 @@ User Nav
     left: 0;
     z-index: 10;
     opacity: 0;
-    visibility: hidden; }
+    visibility: hidden;
+    transform: scaleY(0); }
     .user-nav__user-logoption:hover {
       color: var(--color-primary); }
 

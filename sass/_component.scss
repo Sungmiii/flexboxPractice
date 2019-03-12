@@ -119,14 +119,14 @@ User Nav
     }
     &__user {
         position: relative;
-        transition: 
-                    height .4s cubic-bezier(1,0,0,1) .2s
+        transition: transform .2,
+                    height .4s cubic-bezier(1,0,0,1) .5s
                     opacity .2s;
         &:hover &-logoption{
             visibility: visible;
             opacity: 1;
-            top:7rem;
             height: 100%;
+            transform: scaleY(1);
         }
         &-photo{
             height: 3.75rem;
@@ -149,6 +149,7 @@ User Nav
         z-index: 10;
         opacity: 0;
         visibility: hidden;
+        transform: scaleY(0);
         &:hover {
             color:var(--color-primary);
         }
