@@ -296,10 +296,26 @@ Side Navigation legal text
 Main page 
 */
 .gallery {
-  display: flex; }
+  display: flex;
+  font-size: 1.4rem; }
   .gallery__photo {
     width: 100%;
     display: block; }
+  .gallery__item {
+    overflow: hidden;
+    display: block;
+    position: relative; }
+    .gallery__item-caption {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      position: absolute;
+      bottom: 0;
+      padding: 1rem 2.5rem;
+      width: 100%;
+      left: 100%;
+      transition: left .4s ease; }
+    .gallery__item:hover .gallery__item-caption {
+      left: 0; }
 
 .overview {
   display: flex;

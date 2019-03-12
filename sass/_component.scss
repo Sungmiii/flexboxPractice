@@ -228,9 +228,32 @@ Main page
 
 .gallery {
     display: flex;
+    font-size: 1.4rem;   
     &__photo {
         width: 100%;
         display: block;
+        
+    }
+    &__item{
+        overflow: hidden;
+        display: block;
+        position: relative;
+        &-caption{
+            background-color: rgba(0,0,0,.5);
+            color: white;
+            position: absolute;
+            bottom: 0;
+            padding: 1rem 2.5rem;
+            width: 100%;
+            left:100%;
+            transition: left .4s ease;
+            &--text{
+
+            }
+        }
+        &:hover &-caption{
+            left: 0;
+        }
     }
 }
 
