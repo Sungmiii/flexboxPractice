@@ -19,7 +19,10 @@ Search Box
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-left: 10rem;
+    @media only screen and (max-width:$breakPoint-Phone){
+        order:1;
+        flex: 0 0 100%;
+    }
  &__input {
     font-family: inherit;
     font-size: inherit;
@@ -107,7 +110,9 @@ User Nav
         position: absolute;
         top:1.5rem;
         left:3.5rem;
-
+        @media only screen and(max-width:$breakPoint-Phone){
+            top:0;
+         }
         display: flex;
         justify-content: center;
         align-items: center;
@@ -134,26 +139,34 @@ User Nav
     font-size: 1.4rem;
     list-style: none;
     margin-top: 3.5rem;
-
+    @media only screen and(max-width:$breakPoint-Tablet) {
+        display: flex;
+        margin:0;
+    }
     &__item {
         position: relative;
         &:not(:last-child){
             margin-bottom: .5rem;
+            @media only screen and(max-width:$breakPoint-Tablet) {
+                margin-bottom: 0;
+            }
         }
-        &::before {
-            content: "";
-            position: absolute;
-            top:0;
-            left:0;
-            height: 100%;
-            width: 3px;
-            background-color: var(--color-primary);
-            transform: scaleY(0);
-            transition: transform .2s,
-                        width .4s cubic-bezier(1,0,0,1) .2s,
-                        background-color .2s;
+        @media only screen and(max-width:$breakPoint-Tablet) {
+            flex: 1;
         }
-        
+    }
+    &__item::before {
+        content: "";
+        position: absolute;
+        top:0;
+        left:0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-primary);
+        transform: scaleY(0);
+        transition: transform .2s,
+                    width .4s cubic-bezier(1,0,0,1) .2s,
+                    background-color .2s;
     }
     &__item:hover::before,
     &__item--active::before  {
@@ -175,6 +188,10 @@ User Nav
         align-items: center;
         position: relative;
         z-index: 10;
+        @media only screen and (max-width:$breakPoint-Tab-Small){
+            flex-direction: column;
+            padding:1rem .5rem;
+        }
     }
     &__link:hover {
         color: var(--color-white);
@@ -184,6 +201,10 @@ User Nav
         height: 1.75rem;
         margin-right: 2rem;
         fill: currentColor; //just the color of the current elemnt or the parent element
+        @media only screen and (max-width:$breakPoint-Tab-Small){
+            margin-right: 0;
+            margin-bottom: .7rem;
+        }
     }
 }
 
@@ -196,6 +217,9 @@ Side Navigation legal text
     text-align: center;
     padding: 2.5rem;
     color: var(--color-grey-light-4);
+    @media only screen and(max-width:$breakPoint-Tablet) {
+        display: none;
+    }
 }
 
 /* 
@@ -216,6 +240,10 @@ Main page
    
     align-items: center;
     border-bottom: var(--line);
+    @media only screen and (max-width:$breakPoint-Phone){
+        flex-wrap: wrap;
+    
+    }
     &__heading {
         // background-color: blue;
         font-size: 2.5rem;
@@ -224,22 +252,38 @@ Main page
         letter-spacing: 1px;
         padding: 1.5rem 2.5rem;
 
+        @media only screen  and (max-width:$breakPoint-Tab-Small){
+            font-size: 2rem;
+            font-weight: 400;
+            padding: 1.25rem 2rem;
+        }
+        @media only screen and (max-width:$breakPoint-Phone){
+            padding: .5rem 2rem;
+        
+        }
     }
     &__stars {
         margin-right: auto;
         display: flex;
-
     }
     &__location {
         display: flex;
         align-items: center;
         font-size: 1.2rem;
+        @media only screen and (max-width:$breakPoint-Phone){
+            margin-right: auto;
+            padding-left: 1.5rem;
+        }
     }
     &__icon {
        &--star {
         width:3rem;
         height: 3rem;
         fill: var(--color-primary);
+        @media only screen and (max-width:$breakPoint-Phone){
+            width:2rem;
+            height: 2rem;
+        }
        }
        &--location {
         width:2rem;
@@ -260,12 +304,24 @@ Main page
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        @media only screen  and (max-width:$breakPoint-Tab-Small){
+            padding: 0.5rem 1.5rem;
+        }
+        @media only screen and (max-width:$breakPoint-Phone){
+            padding: 0 1rem;
+        }
 
         &--average{
             font-size: 2.5rem;
+            @media only screen  and (max-width:$breakPoint-Tab-Small){
+                font-size: 2rem;
+            }
     }
         &--count{
             font-size: .8rem;
+            @media only screen  and (max-width:$breakPoint-Tab-Small){
+                font-size: .5rem;
+            }
             
     }
     }
@@ -314,35 +370,6 @@ Main page
     }
 }
 
-/* 
-Hotel view deatil space 
-*/
-
-.detail {
-    display: flex;
-    background-color: var(--color-grey-light-1);
-    padding:4.5rem;
-    border-bottom: var(--line);
-    font-size: 1.4rem;
-}
-
-.description {
-    background-color: var(--color-white);
-    flex:0 0 60%;
-    margin-right: 3rem;
-    padding: 4.5rem;
-    box-shadow: var(--shadow-light);
-    font-size: 1.4rem;
-}
-
-.user-reviews {
-    // background-color: var(--color-white);
-    flex:1; 
-
-    display: flex;
-	flex-direction: column;
-	align-items: center;
-}
 
 ////Paragraph
 .paragraph:not(:last-of-type) {
@@ -395,7 +422,7 @@ Hotel view deatil space
         margin-right:auto;
     }
     &__friends{
-
+        display: flex;
     }
     &__photo {
         height: 3.5rem;
@@ -404,7 +431,7 @@ Hotel view deatil space
         border:3px solid var(--color-white);
         box-sizing: content-box;
         &:not(:last-child){
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -422,6 +449,10 @@ Review */
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+    @media only screen and(max-width:$breakPoint-Tablet) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
     &__text {
         z-index: 3;
         position: relative;
@@ -472,6 +503,10 @@ CTA button space
 .cta {
     padding: 3.5rem 0;
     text-align: center;
+
+    @media only screen and (max-width: $breakPoint-Tablet) {
+        padding: 2.5rem 0;
+    }
     &__book-now{
         text-transform: uppercase;
         font-size: 2rem;

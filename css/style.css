@@ -1,6 +1,6 @@
 :root {
   --color-primary:#eb2f64;
-  --color-primary-light:#FF3366;
+  --color-primary-light:#ff3366;
   --color-primary-dark:#BA265D;
   --color-grey-light-1:#faf9f9;
   --color-grey-light-2:#f4f2f2;
@@ -18,9 +18,13 @@
   /* line */
   --line: 1px solid var(--color-grey-light-2); }
 
+/* SASS variables */
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (max-width: 68.75em) {
+    html {
+      font-size: 50%; } }
 
 * {
   margin: 0;
@@ -46,6 +50,11 @@ body {
   margin: 8rem auto;
   background-color: var(--color-grey-light-1);
   box-shadow: var(--shadow-primary); }
+  @media only screen and (max-width: 75em) {
+    .container {
+      margin: 0 auto;
+      max-width: 100%;
+      width: 100%; } }
 
 .header {
   height: 7rem;
@@ -55,9 +64,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  @media only screen and (max-width: 31.25em) {
+    .header {
+      flex-wrap: wrap;
+      align-content: space-around;
+      height: 10rem; } }
 
 .content {
   display: flex; }
+  @media only screen and (max-width: 56.25em) {
+    .content {
+      flex-direction: column; } }
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
@@ -69,6 +86,44 @@ body {
 .hotel-view {
   color: inherit;
   flex: 1; }
+
+/* 
+Hotel view deatil space 
+*/
+.detail {
+  display: flex;
+  background-color: var(--color-grey-light-1);
+  padding: 4.5rem;
+  border-bottom: var(--line);
+  font-size: 1.4rem; }
+  @media only screen and (max-width: 56.25em) {
+    .detail {
+      padding: 3rem; } }
+  @media only screen and (max-width: 43.75em) {
+    .detail {
+      flex-direction: column; } }
+
+.description {
+  background-color: var(--color-white);
+  flex: 0 0 60%;
+  margin-right: 4.5rem;
+  padding: 3rem;
+  box-shadow: var(--shadow-light);
+  font-size: 1.4rem; }
+  @media only screen and (max-width: 56.25em) {
+    .description {
+      padding: 2rem;
+      margin-right: 3rem; } }
+  @media only screen and (max-width: 43.75em) {
+    .description {
+      margin-right: 0;
+      margin-bottom: 3rem; } }
+
+.user-reviews {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 /* 
 Logo 
@@ -84,8 +139,11 @@ Search Box
   flex: 0 0 40%;
   align-items: center;
   display: flex;
-  justify-content: center;
-  margin-left: 10rem; }
+  justify-content: center; }
+  @media only screen and (max-width: 31.25em) {
+    .search {
+      order: 1;
+      flex: 0 0 100%; } }
   .search__input {
     font-family: inherit;
     font-size: inherit;
@@ -154,6 +212,9 @@ User Nav
     display: flex;
     justify-content: center;
     align-items: center; }
+    @media only screen and (max-width: 31.25em) {
+      .user-nav__notification {
+        top: 0; } }
   .user-nav__user-photo {
     height: 3.75rem;
     border-radius: 50%;
@@ -164,20 +225,30 @@ User Nav
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .side-nav {
+      display: flex;
+      margin: 0; } }
   .side-nav__item {
     position: relative; }
     .side-nav__item:not(:last-child) {
       margin-bottom: .5rem; }
-    .side-nav__item::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 3px;
-      background-color: var(--color-primary);
-      transform: scaleY(0);
-      transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.2s; }
+      @media only screen and (max-width: 56.25em) {
+        .side-nav__item:not(:last-child) {
+          margin-bottom: 0; } }
+    @media only screen and (max-width: 56.25em) {
+      .side-nav__item {
+        flex: 1; } }
+  .side-nav__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.2s; }
   .side-nav__item:hover::before, .side-nav__item--active::before {
     transform: scaleY(1);
     width: 100%; }
@@ -193,6 +264,10 @@ User Nav
     align-items: center;
     position: relative;
     z-index: 10; }
+    @media only screen and (max-width: 43.75em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        flex-direction: column;
+        padding: 1rem .5rem; } }
   .side-nav__link:hover {
     color: var(--color-white); }
   .side-nav__icon {
@@ -200,6 +275,10 @@ User Nav
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor; }
+    @media only screen and (max-width: 43.75em) {
+      .side-nav__icon {
+        margin-right: 0;
+        margin-bottom: .7rem; } }
 
 /* 
 Side Navigation legal text
@@ -209,6 +288,9 @@ Side Navigation legal text
   text-align: center;
   padding: 2.5rem;
   color: var(--color-grey-light-4); }
+  @media only screen and (max-width: 56.25em) {
+    .legal {
+      display: none; } }
 
 /* 
 Main page 
@@ -223,12 +305,23 @@ Main page
   display: flex;
   align-items: center;
   border-bottom: var(--line); }
+  @media only screen and (max-width: 31.25em) {
+    .overview {
+      flex-wrap: wrap; } }
   .overview__heading {
     font-size: 2.5rem;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 2.5rem; }
+    @media only screen and (max-width: 43.75em) {
+      .overview__heading {
+        font-size: 2rem;
+        font-weight: 400;
+        padding: 1.25rem 2rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .overview__heading {
+        padding: .5rem 2rem; } }
   .overview__stars {
     margin-right: auto;
     display: flex; }
@@ -236,10 +329,18 @@ Main page
     display: flex;
     align-items: center;
     font-size: 1.2rem; }
+    @media only screen and (max-width: 31.25em) {
+      .overview__location {
+        margin-right: auto;
+        padding-left: 1.5rem; } }
   .overview__icon--star {
     width: 3rem;
     height: 3rem;
     fill: var(--color-primary); }
+    @media only screen and (max-width: 31.25em) {
+      .overview__icon--star {
+        width: 2rem;
+        height: 2rem; } }
   .overview__icon--location {
     width: 2rem;
     height: 2rem;
@@ -256,10 +357,22 @@ Main page
     flex-direction: column;
     align-items: center;
     justify-content: center; }
+    @media only screen and (max-width: 43.75em) {
+      .overview__rating {
+        padding: 0.5rem 1.5rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .overview__rating {
+        padding: 0 1rem; } }
     .overview__rating--average {
       font-size: 2.5rem; }
+      @media only screen and (max-width: 43.75em) {
+        .overview__rating--average {
+          font-size: 2rem; } }
     .overview__rating--count {
       font-size: .8rem; }
+      @media only screen and (max-width: 43.75em) {
+        .overview__rating--count {
+          font-size: .5rem; } }
 
 /* Inline button for hotel overview */
 .btn-inline {
@@ -294,30 +407,6 @@ Main page
     transform: scale(1);
     box-shadow: none; } }
 
-/* 
-Hotel view deatil space 
-*/
-.detail {
-  display: flex;
-  background-color: var(--color-grey-light-1);
-  padding: 4.5rem;
-  border-bottom: var(--line);
-  font-size: 1.4rem; }
-
-.description {
-  background-color: var(--color-white);
-  flex: 0 0 60%;
-  margin-right: 3rem;
-  padding: 4.5rem;
-  box-shadow: var(--shadow-light);
-  font-size: 1.4rem; }
-
-.user-reviews {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-
 .paragraph:not(:last-of-type) {
   margin-bottom: 2rem; }
 
@@ -351,6 +440,8 @@ Hotel view deatil space
   align-items: center; }
   .recommend__count {
     margin-right: auto; }
+  .recommend__friends {
+    display: flex; }
   .recommend__photo {
     height: 3.5rem;
     width: 3.5rem;
@@ -358,7 +449,7 @@ Hotel view deatil space
     border: 3px solid var(--color-white);
     box-sizing: content-box; }
     .recommend__photo:not(:last-child) {
-      margin-right: -1.5rem; }
+      margin-right: -2rem; }
 
 /* 
 User
@@ -370,6 +461,10 @@ Review */
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden; }
+  @media only screen and (max-width: 56.25em) {
+    .review {
+      padding: 2rem;
+      margin-bottom: 3rem; } }
   .review__text {
     z-index: 3;
     position: relative; }
@@ -409,6 +504,9 @@ CTA button space
 .cta {
   padding: 3.5rem 0;
   text-align: center; }
+  @media only screen and (max-width: 56.25em) {
+    .cta {
+      padding: 2.5rem 0; } }
   .cta__book-now {
     text-transform: uppercase;
     font-size: 2rem;
